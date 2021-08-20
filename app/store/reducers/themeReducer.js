@@ -3,14 +3,14 @@
  * Avoid data persist
  */
 import createReducer from 'app/lib/createReducer';
-import * as types from 'app/store/actions/types';
+import { types } from 'app/store/actions';
 
 const initialState = {
   isDark: false,
 };
 
 export const themeReducer = createReducer(initialState, {
-  [types.TOGGLE_THEME](state, action) {
+  [types.TOGGLE_THEME]: (state, action) => {
     return { ...state, isDark: action.isDark };
   },
 });

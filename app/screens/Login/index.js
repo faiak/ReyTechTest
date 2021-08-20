@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import * as loginActions from 'app/store/actions/loginActions';
+import { loginActions } from 'app/store/actions';
 import styles from './styles';
 import NavigationService from 'app/navigation/NavigationService';
 import { TextInput, Button } from 'react-native-paper';
@@ -47,15 +47,13 @@ const formTemplate = [
 
 const Login = () => {
   const dispatch = useDispatch();
-  const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
+  const onLogin = data => dispatch(loginActions.login(data));
   const onRegister = () => NavigationService.navigate(screens.REGISTER);
-
-  const onSubmit = data => console.log(data);
 
   return (
     <ContainerScrollView>
       <Form
-        onSubmit={onSubmit}
+        onSubmit={onLogin}
         data={formTemplate}
         bottomComponent={({ handleSubmit }) => (
           <>
@@ -63,7 +61,7 @@ const Login = () => {
               labelStyle={styles.buttonLabel}
               style={styles.button}
               mode="contained"
-              onPress={handleSubmit(onSubmit)}>
+              onPress={handleSubmit(onLogin)}>
               LOGIN
             </Button>
             <Button mode="outlined" onPress={onRegister}>
