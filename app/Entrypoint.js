@@ -16,6 +16,7 @@ import {
 } from 'app/config/theme-config';
 import Navigator from 'app/navigation';
 import configureStore from 'app/store';
+import { ModalBottom } from './components';
 
 const { persistor, store } = configureStore();
 
@@ -27,6 +28,7 @@ const RootNavigation = () => {
   return (
     <PaperProvider theme={paperTheme}>
       <Navigator theme={combinedTheme} />
+      <ModalBottom />
     </PaperProvider>
   );
 };

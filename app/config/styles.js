@@ -12,7 +12,7 @@ export const COLORS = {
   PRIMARY: '#2ec7ab',
   SECONDARY: '#111',
   WHITE: '#FFFFFF',
-  BLACK: '#000000',
+  BLACK: '#333333',
   GREY: 'grey',
   GREEN: 'green',
   PLACEHOLDER: '#111111',
@@ -21,4 +21,17 @@ export const COLORS = {
   BLACK_TRANSP: 'rgba(0, 0, 0, 0.7)',
   GREY_TRANSP: 'rgba(67, 85, 85, 0.7)',
   ERROR: 'red',
+};
+
+export const SHADOW = {
+  BOTTOM_SHADOW: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
 };

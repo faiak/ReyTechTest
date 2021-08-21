@@ -27,7 +27,7 @@ const homeOptions = {
 };
 
 const AuthNavigator = () => {
-  const isLoggedIn = useSelector(state => state.loginReducer.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
   return (
     <AuthStack.Navigator>
       <Stack.Screen
@@ -72,7 +72,7 @@ const LoggedInNavigator = () => (
 
 const App = props => {
   const { theme } = props;
-  const isLoggedIn = useSelector(state => state.loginReducer.isLoggedIn);
+  const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
 
   return (
     <NavigationContainer ref={navigationRef} theme={theme}>

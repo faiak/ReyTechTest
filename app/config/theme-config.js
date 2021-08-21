@@ -12,6 +12,16 @@ export const PaperThemeDefault = {
   colors: {
     ...PaperDefaultTheme.colors,
     primary: '#3498db',
+    // background: 'white',
+    // surface: 'white',
+    // accent: 'white',
+    // error: 'white',
+    // text: 'white',
+    // onSurface: 'white',
+    // disabled: 'white',
+    // placeholder: 'white',
+    // backdrop: 'white',
+    // notification: 'white',
   },
 };
 

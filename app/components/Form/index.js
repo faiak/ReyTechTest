@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import styles from './styles';
 import { Controller, useForm } from 'react-hook-form';
 
-const Form = ({ data, onSubmit, bottomComponent }) => {
+const Form = ({ data, onSubmit, bottomComponent, isLoading = false }) => {
   const {
     control,
     handleSubmit,
@@ -32,6 +32,7 @@ const Form = ({ data, onSubmit, bottomComponent }) => {
               rules={rules}
               render={({ field: { onChange, onBlur, value, ref } }) => (
                 <Component
+                  disabled={isLoading}
                   {...componentProps}
                   onBlur={onBlur}
                   onChangeText={onChange}
@@ -50,7 +51,9 @@ const Form = ({ data, onSubmit, bottomComponent }) => {
               defaultValue={defaultValue}
             />
             {errors[name] && (
-              <Text style={styles.errorText}>{errors[name].message}</Text>
+              <Text style={styles.errorText}>
+                {errors[name].message || errors[name].type}
+              </Text>
             )}
           </View>
         ),

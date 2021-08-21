@@ -1,7 +1,15 @@
 /*
  * combines all th existing reducers
  */
-import * as loadingReducer from './loadingReducer';
-import * as loginReducer from './loginReducer';
-import * as themeReducer from './themeReducer';
-export default Object.assign(loginReducer, loadingReducer, themeReducer);
+import modalReducer from './modalReducer';
+import authReducer from './authReducer';
+import themeReducer from './themeReducer';
+import { combineReducers } from 'redux';
+
+export default combineReducers({
+  authReducer: authReducer,
+  modalReducer: modalReducer,
+  themeReducer: themeReducer,
+});
+
+// export default Object.assign(authReducer, modalReducer, themeReducer);

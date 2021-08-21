@@ -1,13 +1,14 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { loginActions } from 'app/store/actions';
+import { authActions } from 'app/store/actions';
 import styles from './styles';
 import NavigationService from 'app/navigation/NavigationService';
 import { TextInput, Button } from 'react-native-paper';
 import screens from 'app/navigation/screens';
-import { Form } from 'app/components';
+import { Form, ModalBottom } from 'app/components';
 import { ContainerScrollView } from 'app/container';
+import { authSelectors } from 'app/store/selectors';
 
 const formTemplate = [
   {
@@ -15,6 +16,7 @@ const formTemplate = [
     componentProps: {
       label: 'Email',
       mode: 'outlined',
+      autoCapitalize: 'none',
     },
     submitType: 'password',
     rules: {
@@ -47,24 +49,29 @@ const formTemplate = [
 
 const Login = () => {
   const dispatch = useDispatch();
-  const onLogin = data => dispatch(loginActions.login(data));
-  const onRegister = () => NavigationService.navigate(screens.REGISTER);
-
+  const isLoading = useSelector(state => authSelectors.getLoading(state));
+  const onLogin = data => dispatch(authActions.login(data));
+  const onRegister = () => {
+    NavigationService.navigate(screens.REGISTER);
+  };
   return (
     <ContainerScrollView>
       <Form
         onSubmit={onLogin}
         data={formTemplate}
+        isLoading={isLoading}
         bottomComponent={({ handleSubmit }) => (
           <>
             <Button
               labelStyle={styles.buttonLabel}
               style={styles.button}
               mode="contained"
+              loading={isLoading}
+              disabled={isLoading}
               onPress={handleSubmit(onLogin)}>
               LOGIN
             </Button>
-            <Button mode="outlined" onPress={onRegister}>
+            <Button mode="outlined" disabled={isLoading} onPress={onRegister}>
               DAFTAR
             </Button>
           </>
