@@ -70,6 +70,16 @@ const reducer = createReducer(initialState, {
     isLoadingComplete: false,
     list: state.list.map(({ meta, data }, index) => ({
       meta,
+      data: data.map(task =>
+        task.id === payload.id ? { ...task, is_deleted: true } : task,
+      ),
+    })),
+  }),
+  [types.TASK_FORCE_DELETE]: (state, { payload }) => ({
+    ...state,
+    isLoadingComplete: false,
+    list: state.list.map(({ meta, data }, index) => ({
+      meta,
       data: data.filter(task => task.id !== payload.id),
     })),
   }),

@@ -15,7 +15,11 @@ export const getLoadingCreate = createSelector([taskReducer], state => {
 });
 
 export const getTask = createSelector([taskReducer], state => {
-  return state.list.filter(item => item.data?.length > 0);
+  return state.list.filter(item => {
+    // const isDeletedDataLength = item.data?.filter(o => o.is_deleted)?.length;
+    // const dataLength = item.data?.length;
+    return item.data?.length > 0;
+  });
 });
 
 export default { getLoading, getTask, getLoadingComplete, getLoadingCreate };

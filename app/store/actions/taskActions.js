@@ -15,6 +15,7 @@ export default {
   delete: payload => ({ type: types.TASK_DELETE, payload }),
   deleteSuccess: payload => ({ type: types.TASK_DELETE_SUCCESS, payload }),
   deleteFailed: payload => ({ type: types.TASK_DELETE_FAILED, payload }),
+  deleteForce: payload => ({ type: types.TASK_FORCE_DELETE, payload }),
 
   complete: payload => ({ type: types.TASK_COMPLETE, payload }),
   completeSuccess: payload => ({ type: types.TASK_COMPLETE_SUCCESS, payload }),

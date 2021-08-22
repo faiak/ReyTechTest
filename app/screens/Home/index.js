@@ -6,7 +6,7 @@ import { ContainerFlatList } from 'app/container';
 import NavigationService from 'app/navigation/NavigationService';
 import screens from 'app/navigation/screens';
 import { authActions, taskActions } from 'app/store/actions';
-import { RefreshControl, View, Image } from 'react-native';
+import { RefreshControl, View, Image, Animated } from 'react-native';
 import { FAB, Text } from 'react-native-paper';
 
 import { useDispatch, useSelector } from 'react-redux';
