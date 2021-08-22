@@ -22,6 +22,9 @@ const initialState = {
 const setLoadingDone = state => ({ ...state, isLoading: false });
 
 const reducer = createReducer(initialState, {
+  [types.LOGOUT]: state => ({
+    ...initialState,
+  }),
   [types.TASK_GET]: (state, { payload }) => ({
     ...state,
     ...initialState,

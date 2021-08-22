@@ -1,5 +1,5 @@
 import { createLogic } from 'redux-logic';
-import { modalActions } from '../actions';
+import { authActions, modalActions } from '../actions';
 
 // RSA - fix me
 const onFail = createLogic({
@@ -8,14 +8,28 @@ const onFail = createLogic({
     {
       action,
       action: {
-        payload: { response: { data: { messages } = {} } = {} } = ({} = {}),
+        payload: {
+          response,
+          response: { data: { messages } = {} } = {},
+        } = ({} = {}),
         payload,
       },
     },
     dispatch,
     done,
   ) {
-    dispatch(modalActions.show({ title: 'Oops..', body: messages }));
+    console.log({ response });
+    if (response?.status === 401) {
+      dispatch(
+        modalActions.show({
+          title: 'Oops..',
+          body: 'Sesi habis! Silahkan login kembali',
+        }),
+      );
+      dispatch(authActions.logout());
+    } else {
+      dispatch(modalActions.show({ title: 'Oops..', body: messages }));
+    }
     done();
   },
 });
