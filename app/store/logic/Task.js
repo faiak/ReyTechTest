@@ -57,9 +57,9 @@ const deleteTask = createLogic({
   latest: true,
   process({ getState, action, action: { payload } }, dispatch, done) {
     task
-      .delete({ ...buildHeaders(getState()), body: {} })
+      .delete({ id: payload }, { ...buildHeaders(getState()) })
       .then(({ data: { data } = {} }) => {
-        dispatch(taskActions.deleteSuccess({}));
+        dispatch(taskActions.deleteSuccess({ id: payload }));
       })
       .catch(error => {
         dispatch(taskActions.deleteFailed(error));

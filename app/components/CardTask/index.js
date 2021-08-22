@@ -33,6 +33,9 @@ const CardTask = ({
   const onComplete = id => {
     dispatch(taskActions.complete(id));
   };
+  const onDelete = id => {
+    dispatch(taskActions.delete(id));
+  };
   return (
     <Card style={styles.card}>
       <View
@@ -48,18 +51,11 @@ const CardTask = ({
         />
         <View style={styles.flex}>
           <Text
-            style={[
-              styles.title,
-              is_complete && { textDecorationLine: 'line-through' },
-            ]}
+            style={[styles.title, is_complete && styles.strikeTitle]}
             numberOfLines={1}>
             {title}
           </Text>
-          <Text
-            style={[
-              styles.date,
-              is_complete && { textDecorationLine: 'line-through' },
-            ]}>
+          <Text style={[styles.date, is_complete && styles.strikeTitle]}>
             Created: {created_at}
           </Text>
         </View>
@@ -75,7 +71,7 @@ const CardTask = ({
           icon="delete"
           color={COLORS.GREY}
           size={18}
-          onPress={() => console.log('Pressed')}
+          onPress={() => onDelete(id)}
         />
       </View>
     </Card>

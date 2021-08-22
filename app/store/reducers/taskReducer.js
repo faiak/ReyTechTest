@@ -56,6 +56,23 @@ const reducer = createReducer(initialState, {
     ...state,
     isLoadingComplete: false,
   }),
+
+  [types.TASK_DELETE]: state => ({
+    ...state,
+    isLoadingComplete: true,
+  }),
+  [types.TASK_DELETE_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    isLoadingComplete: false,
+    list: state.list.map(({ meta, data }, index) => ({
+      meta,
+      data: data.filter(task => task.id !== payload.id),
+    })),
+  }),
+  [types.TASK_DELETE_FAILED]: state => ({
+    ...state,
+    isLoadingComplete: false,
+  }),
 });
 
 const persistConfig = {
