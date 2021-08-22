@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { View, Animated } from 'react-native';
+import { View, Animated, Alert } from 'react-native';
 import styles from './styles';
 import { Card, IconButton, Text } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,7 +22,20 @@ const CardTask = ({
     dispatch(taskActions.complete(id));
   };
   const onDelete = () => {
-    dispatch(taskActions.delete(id));
+    Alert.alert('Peringatan!', 'Yakin ingin hapus task ?', [
+      {
+        text: 'Cancel',
+        onPress: () => {},
+        style: 'cancel',
+      },
+      {
+        text: 'Ok',
+        onPress: () => {
+          dispatch(taskActions.delete(id));
+        },
+        style: 'cancel',
+      },
+    ]);
   };
   const onEdit = () => {
     NavigationService.navigate(screens.TASK_UPDATE, {
