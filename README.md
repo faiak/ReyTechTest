@@ -29,16 +29,16 @@ simple todo-app built with react-native
 
 ## Video & Screenshoot
 
-| Name            | Android                                                                              | IOS                                                                              |
-| --------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
-| Delete Animated | <p align="center"><img src="/.docs/android/delete_animation.gif" height="300" /></p> | <p align="center"><img src="/.docs/ios/delete_animation.gif" height="300" /></p> |
-| Login           | a                                                                                    | a                                                                                |
-| Login           | a                                                                                    | a                                                                                |
-| Login           | a                                                                                    | a                                                                                |
-| Login           | a                                                                                    | a                                                                                |
-| Login           | a                                                                                    | a                                                                                |
-| Login           | a                                                                                    | a                                                                                |
-| Login           | a                                                                                    | a                                                                                |
+| Name            | Android                                                                             | IOS                                                                             |
+| --------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Delete Animated | <p align="center"><img src="/docs/android/delete_animation.gif" height="300" /></p> | <p align="center"><img src="/docs/ios/delete_animation.gif" height="300" /></p> |
+| Login           | a                                                                                   | a                                                                               |
+| Login           | a                                                                                   | a                                                                               |
+| Login           | a                                                                                   | a                                                                               |
+| Login           | a                                                                                   | a                                                                               |
+| Login           | a                                                                                   | a                                                                               |
+| Login           | a                                                                                   | a                                                                               |
+| Login           | a                                                                                   | a                                                                               |
 
 [//]: #
 [here]: https://drive.google.com/file/d/1dvU9apf2nYfMHdn3sHPvjIYZBtwriLww/view?usp=sharing
