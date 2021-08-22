@@ -18,6 +18,7 @@ const initialState = {
     page: 1,
     current_page: 1,
   },
+  search: '',
 };
 
 const setLoadingDone = state => ({ ...state, isLoading: false });
@@ -26,10 +27,11 @@ const reducer = createReducer(initialState, {
   [types.LOGOUT]: state => ({
     ...initialState,
   }),
+  [types.TASK_SEARCH]: (state, { payload }) => ({ ...state, search: payload }),
   [types.TASK_GET]: (state, { payload }) => ({
     ...state,
-    ...initialState,
     isLoading: true,
+    list: [],
   }),
   [types.TASK_GET_SUCCESS]: (state, { payload }) => ({
     ...state,

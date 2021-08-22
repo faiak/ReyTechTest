@@ -4,6 +4,8 @@
 import { types } from 'app/store/actions';
 
 export default {
+  search: payload => ({ type: types.TASK_SEARCH, payload }),
+
   get: payload => ({ type: types.TASK_GET, payload }),
   getSuccess: payload => ({ type: types.TASK_GET_SUCCESS, payload }),
   getFailed: payload => ({ type: types.TASK_GET_FAILED, payload }),

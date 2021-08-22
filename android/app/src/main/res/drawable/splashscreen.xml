@@ -5,7 +5,7 @@
   <item
     android:width="200dp"
     android:height="200dp"
-    android:drawable="@drawable/rey_logo-white"
+    android:drawable="@drawable/rey_logo_white"
     android:gravity="center"
     android:background="@color/primary"/>
 </layer-list>

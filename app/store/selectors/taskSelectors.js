@@ -18,6 +18,10 @@ export const getLoadingFirst = createSelector([taskReducer], state => {
   return state.isLoaidngFirst;
 });
 
+export const getSearch = createSelector([taskReducer], state => {
+  return state.search;
+});
+
 export const getTask = createSelector([taskReducer], state => {
   return state.list.filter(item => {
     // const isDeletedDataLength = item.data?.filter(o => o.is_deleted)?.length;
@@ -32,4 +36,5 @@ export default {
   getLoadingComplete,
   getLoadingCreate,
   getLoadingFirst,
+  getSearch,
 };

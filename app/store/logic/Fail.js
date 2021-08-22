@@ -18,7 +18,6 @@ const onFail = createLogic({
     dispatch,
     done,
   ) {
-    console.log({ response });
     if (response?.status === 401) {
       dispatch(
         modalActions.show({

@@ -58,7 +58,10 @@ const Home = () => {
               refreshing={isLoading}
               colors={[COLORS.PRIMARY]}
               tintColor={COLORS.PRIMARY}
-              onRefresh={() => dispatch(taskActions.get())}
+              onRefresh={() => {
+                dispatch(taskActions.search(''));
+                dispatch(taskActions.get());
+              }}
             />
           ),
         }}
