@@ -2,4 +2,6 @@ export default {
   REGISTER: 'REGISTER',
   LOGIN: 'LOGIN',
   HOME: 'HOME',
+  TASK_CREATE: 'TASK_CREATE',
+  TASK_UPDATE: 'TASK_UPDATE',
 };

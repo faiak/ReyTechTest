@@ -22,7 +22,7 @@ const ContainerFlatList = ({
   return (
     <SafeAreaView style={[styles.safeAreaView, safeAreaViewStyle]}>
       <KeyboardAvoidingView>
-        {ListHeaderComponent}
+        {ListHeaderComponent && <ListHeaderComponent />}
         <FlatList
           data={data}
           // refreshControl={this._refreshControl()}
