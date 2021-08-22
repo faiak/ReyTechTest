@@ -6,6 +6,12 @@ const styles = StyleSheet.create({
     color: COLORS.WHITE,
   },
   button: { marginBottom: 12 },
+  timeWarpper: {
+    paddingBottom: 12,
+  },
+  timeText: {
+    fontSize: 12,
+  },
 });
 
 export default styles;

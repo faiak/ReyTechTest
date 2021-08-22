@@ -1,41 +1,38 @@
 import React from 'react';
-import {
-  View,
-  Modal as BaseModal,
-  TouchableOpacity,
-  Pressable,
-} from 'react-native';
+import { View } from 'react-native';
 import styles from './styles';
-import {
-  Avatar,
-  Card,
-  Checkbox,
-  IconButton,
-  Paragraph,
-  Text,
-  Title,
-} from 'react-native-paper';
+import { Card, IconButton, Text } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
-import { modalActions, taskActions } from 'app/store/actions';
-import * as modalSelectors from 'app/store/selectors/modalSelectors';
-import { Button } from 'app/components';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { taskActions } from 'app/store/actions';
 import { COLORS } from 'app/config/styles';
+import NavigationService from 'app/navigation/NavigationService';
+import screens from 'app/navigation/screens';
 
 const CardTask = ({
   title = '',
   task_date = '',
   created_at = '',
+  updated_at = '',
   is_complete = 0,
   id = 0,
 }) => {
   const dispatch = useDispatch();
-  const onComplete = id => {
+  const onComplete = () => {
     dispatch(taskActions.complete(id));
   };
-  const onDelete = id => {
+  const onDelete = () => {
     dispatch(taskActions.delete(id));
   };
+  const onEdit = () => {
+    NavigationService.navigate(screens.TASK_UPDATE, {
+      id,
+      title,
+      task_date,
+      created_at,
+      updated_at,
+    });
+  };
+
   const isDark = useSelector(state => state.themeReducer.isDark);
   return (
     <Card style={styles.card}>
@@ -52,7 +49,7 @@ const CardTask = ({
           icon={is_complete ? 'radiobox-marked' : 'radiobox-blank'}
           color={is_complete ? COLORS.PRIMARY : COLORS.GREY}
           size={28}
-          onPress={() => onComplete(id)}
+          onPress={onComplete}
         />
         <View style={styles.flex}>
           <Text
@@ -61,14 +58,14 @@ const CardTask = ({
             {title}
           </Text>
           <Text style={[styles.date, is_complete && styles.strikeTitle]}>
-            Created: {created_at}
+            Dibuat: {created_at}
           </Text>
         </View>
         <IconButton
           icon="pencil-outline"
           color={COLORS.GREY}
           size={18}
-          onPress={() => console.log('Pressed')}
+          onPress={onEdit}
           style={styles.icon}
         />
         <IconButton
@@ -76,7 +73,7 @@ const CardTask = ({
           icon="delete"
           color={COLORS.GREY}
           size={18}
-          onPress={() => onDelete(id)}
+          onPress={onDelete}
         />
       </View>
     </Card>

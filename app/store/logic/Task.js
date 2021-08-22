@@ -48,7 +48,9 @@ const createTask = createLogic({
         dispatch(NavigationService.goBack());
         dispatch(taskActions.get());
         dispatch(taskActions.createSuccess({}));
-        Alert.alert('Berhasil menambah task!');
+        Alert.alert(
+          payload.id ? 'Berhasil ubah task!' : 'Berhasil menambah task!',
+        );
       })
       .catch(error => {
         dispatch(taskActions.createFailed(error));
