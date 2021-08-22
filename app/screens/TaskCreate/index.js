@@ -28,13 +28,23 @@ const formTemplate = [
     Component: TextInput,
     componentProps: {
       label: 'Tanggal (yyyy-mm-dd)',
-      render: props => <TextInputMask {...props} mask="0000-00-00" />,
+      render: props => (
+        <TextInputMask
+          {...props}
+          // placeholder="2020-01-01"
+          mask={'[0000]-[00]-[00]'}
+        />
+      ),
       mode: 'outlined',
       autoCapitalize: 'none',
     },
     submitType: 'submit',
     rules: {
       required: true,
+      pattern: {
+        value: /\d{4}-\d{2}-\d{2}/,
+        message: 'Please use yyyy-mm-dd format',
+      },
     },
     name: 'date',
   },
@@ -43,8 +53,10 @@ const formTemplate = [
 const TaskCreate = () => {
   const dispatch = useDispatch();
 
-  const isLoading = useSelector(state => taskSelectors.getLoading(state));
-  const onSubmit = data => dispatch(taskActions.create(data));
+  const isLoading = useSelector(state => taskSelectors.getLoadingCreate(state));
+  const onSubmit = data => {
+    dispatch(taskActions.create(data));
+  };
 
   return (
     <ContainerScrollView>

@@ -33,7 +33,6 @@ const Form = ({ data, onSubmit, bottomComponent, isLoading = false }) => {
               render={({ field: { onChange, onBlur, value, ref } }) => (
                 <Component
                   disabled={isLoading}
-                  {...componentProps}
                   onBlur={onBlur}
                   onChangeText={onChange}
                   value={value}
@@ -45,6 +44,7 @@ const Form = ({ data, onSubmit, bottomComponent, isLoading = false }) => {
                     }
                   }}
                   ref={ref}
+                  {...componentProps}
                 />
               )}
               name={name}

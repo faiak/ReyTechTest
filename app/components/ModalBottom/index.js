@@ -19,12 +19,13 @@ const ModalBottom = ({}) => {
     dispatch(modalActions.hide());
   };
   const { show, title, body } = useSelector(state => modalSelectors.get(state));
+  const isLoading = useSelector(state => modalSelectors.getGlobal(state));
 
   return (
     <BaseModal
       animationType="fade"
-      transparent={show}
-      visible={show}
+      transparent={show && !isLoading}
+      visible={show && !isLoading}
       onRequestClose={onOk}>
       <View style={styles.modalClose}>
         <Pressable style={styles.modalClose2} onPress={onOk} />

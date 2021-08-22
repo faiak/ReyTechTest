@@ -16,18 +16,12 @@ import { ContainerFlatList } from 'app/container';
 import CardTask from '../CardTask';
 import { COLORS } from 'app/config/styles';
 
-const LeftContent = props => <Avatar.Icon {...props} icon="folder" />;
-
 const WrapperTask = ({ meta, meta: { date_fr } = {}, data = [] }) => {
-  const dispatch = useDispatch();
-  const onOk = () => {
-    dispatch(modalActions.hide());
-  };
-
+  if (!data.length) return null;
   return (
-    <View style={{}}>
-      <View style={{ paddingBottom: 8, paddingTop: 8, paddingLeft: 2 }}>
-        <Text style={{ fontSize: 18 }}>{date_fr}</Text>
+    <View>
+      <View style={styles.textWrapper}>
+        <Text style={styles.text}>{date_fr}</Text>
       </View>
       <ContainerFlatList
         disableKeybordListerner
@@ -38,11 +32,7 @@ const WrapperTask = ({ meta, meta: { date_fr } = {}, data = [] }) => {
         )}
         flatListProps={{
           keyExtractor: ({ id }) => `idx_${id}`,
-          // key
-          // extraData: this.state,
-          // ListFooterComponent: this._renderNote(),
         }}
-        // ListFooterComponent={this._renderFooter()}
       />
     </View>
   );

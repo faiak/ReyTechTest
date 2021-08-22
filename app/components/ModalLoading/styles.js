@@ -2,6 +2,17 @@ import { COLORS } from 'app/config/styles';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  wrapper: {
+    position: 'absolute',
+    flex: 1,
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
   content: {
     flex: 1,
     justifyContent: 'flex-end',
@@ -18,7 +29,6 @@ const styles = StyleSheet.create({
   modalClose: {
     flex: 1,
     flexGrow: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent: 'center',
     alignItems: 'center',
   },

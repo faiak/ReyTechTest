@@ -59,7 +59,7 @@ const Home = () => {
         }}
       />
       <FAB
-        label="Logout"
+        label="Keluar"
         style={styles.fabLogout}
         small={true}
         icon="location-exit"

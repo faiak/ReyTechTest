@@ -10,8 +10,12 @@ export const getLoadingComplete = createSelector([taskReducer], state => {
   return state.isLoadingComplete;
 });
 
+export const getLoadingCreate = createSelector([taskReducer], state => {
+  return state.isLoadingCreate;
+});
+
 export const getTask = createSelector([taskReducer], state => {
   return state.list;
 });
 
-export default { getLoading, getTask, getLoadingComplete };
+export default { getLoading, getTask, getLoadingComplete, getLoadingCreate };

@@ -21,8 +21,10 @@ const ModalLoading = ({}) => {
   };
   const isLoading = useSelector(state => modalSelectors.getGlobal(state));
 
+  if (!isLoading) return null;
   return (
-    <BaseModal
+    <View
+      style={styles.wrapper}
       animationType="fade"
       transparent={isLoading}
       visible={isLoading}
@@ -30,7 +32,7 @@ const ModalLoading = ({}) => {
       <View style={styles.modalClose}>
         <ActivityIndicator animating={true} color={COLORS.PRIMARY} />
       </View>
-    </BaseModal>
+    </View>
   );
 };
 

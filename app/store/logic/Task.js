@@ -2,6 +2,8 @@ import { createLogic } from 'redux-logic';
 import { types, taskActions } from 'app/store/actions';
 import task from 'app/services/task';
 import { authSelectors } from '../selectors';
+import NavigationService from 'app/navigation/NavigationService';
+import { Alert } from 'react-native';
 
 const buildHeaders = state => {
   return {
@@ -39,10 +41,14 @@ const createTask = createLogic({
   warnTimeout: 0,
   latest: true,
   process({ getState, action, action: { payload } }, dispatch, done) {
+    console.log({ payload });
     task
-      .create({ ...buildHeaders(getState()), body: {} })
+      .create(payload, { ...buildHeaders(getState()) })
       .then(({ data: { data } = {} }) => {
+        dispatch(NavigationService.goBack());
+        dispatch(taskActions.get());
         dispatch(taskActions.createSuccess({}));
+        Alert.alert('Berhasil menambah task!');
       })
       .catch(error => {
         dispatch(taskActions.createFailed(error));
