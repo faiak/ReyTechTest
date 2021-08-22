@@ -16,11 +16,12 @@ import { ContainerFlatList } from 'app/container';
 import CardTask from '../CardTask';
 import { COLORS } from 'app/config/styles';
 
-const WrapperTask = ({ meta, meta: { date_fr } = {}, data = [] }) => {
+const WrapperTask = ({ meta, meta: { date_fr, title } = {}, data = [] }) => {
   if (!data.length) return null;
   return (
     <View>
       <View style={styles.textWrapper}>
+        {title ? <Text style={styles.text}>{title} - </Text> : null}
         <Text style={styles.text}>{date_fr}</Text>
       </View>
       <ContainerFlatList
