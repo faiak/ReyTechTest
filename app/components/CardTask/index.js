@@ -36,12 +36,17 @@ const CardTask = ({
   const onDelete = id => {
     dispatch(taskActions.delete(id));
   };
+  const isDark = useSelector(state => state.themeReducer.isDark);
   return (
     <Card style={styles.card}>
       <View
         style={[
           styles.content,
-          is_complete && { backgroundColor: COLORS.DARK_SEPERATOR },
+          is_complete && {
+            backgroundColor: isDark
+              ? COLORS.GREY_TRANSP
+              : COLORS.DARK_SEPERATOR,
+          },
         ]}>
         <IconButton
           icon={is_complete ? 'radiobox-marked' : 'radiobox-blank'}
