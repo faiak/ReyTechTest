@@ -35,7 +35,11 @@ const CardTask = ({
   };
   return (
     <Card style={styles.card}>
-      <View style={styles.content}>
+      <View
+        style={[
+          styles.content,
+          is_complete && { backgroundColor: COLORS.DARK_SEPERATOR },
+        ]}>
         <IconButton
           icon={is_complete ? 'radiobox-marked' : 'radiobox-blank'}
           color={is_complete ? COLORS.PRIMARY : COLORS.GREY}
@@ -43,10 +47,21 @@ const CardTask = ({
           onPress={() => onComplete(id)}
         />
         <View style={styles.flex}>
-          <Text style={styles.title} numberOfLines={1}>
+          <Text
+            style={[
+              styles.title,
+              is_complete && { textDecorationLine: 'line-through' },
+            ]}
+            numberOfLines={1}>
             {title}
           </Text>
-          <Text style={styles.date}>Created: {created_at}</Text>
+          <Text
+            style={[
+              styles.date,
+              is_complete && { textDecorationLine: 'line-through' },
+            ]}>
+            Created: {created_at}
+          </Text>
         </View>
         <IconButton
           icon="pencil-outline"
