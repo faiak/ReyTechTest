@@ -2,15 +2,25 @@
  * Loading reducer made separate for easy blacklisting
  * Avoid data persist
  */
+import AsyncStorage from '@react-native-community/async-storage';
 import createReducer from 'app/lib/createReducer';
-import * as types from 'app/store/actions/types';
+import { types } from 'app/store/actions';
+import persistReducer from 'redux-persist/es/persistReducer';
 
 const initialState = {
   isDark: false,
 };
 
-export const themeReducer = createReducer(initialState, {
-  [types.TOGGLE_THEME](state, action) {
+const reducer = createReducer(initialState, {
+  [types.TOGGLE_THEME]: (state, action) => {
     return { ...state, isDark: action.isDark };
   },
 });
+
+const persistConfig = {
+  key: 'themeReducer',
+  blacklist: ['isLoading'],
+  storage: AsyncStorage,
+  version: 0,
+};
+export default persistReducer(persistConfig, reducer);

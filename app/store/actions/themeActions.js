@@ -1,7 +1,7 @@
 /*
  * Reducer actions related with login
  */
-import * as types from './types';
+import { types } from './';
 
 export function setIsDarkTheme(value) {
   return {

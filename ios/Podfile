@@ -3,8 +3,10 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'RNBoilerPlate' do
+
+target 'ReyTest' do
   config = use_native_modules!
+  pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text', :modular_headers => true
 
   use_react_native!(
     :path => config[:reactNativePath],
@@ -12,7 +14,7 @@ target 'RNBoilerPlate' do
     :hermes_enabled => false
   )
 
-  target 'RNBoilerPlateTests' do
+  target 'ReyTestTests' do
     inherit! :complete
     # Pods for testing
   end
