@@ -11,8 +11,8 @@ import screens from 'app/navigation/screens';
 const CardTask = ({
   title = '',
   task_date = '',
-  created_at = '',
-  updated_at = '',
+  fr_created_at = '',
+  fr_updated_at = '',
   is_complete = 0,
   id = 0,
   is_deleted = false,
@@ -42,8 +42,8 @@ const CardTask = ({
       id,
       title,
       task_date,
-      created_at,
-      updated_at,
+      fr_created_at,
+      fr_updated_at,
     });
   };
 
@@ -92,7 +92,7 @@ const CardTask = ({
               {title}
             </Text>
             <Text style={[styles.date, is_complete && styles.strikeTitle]}>
-              Dibuat: {created_at}
+              Dibuat: {fr_created_at}
             </Text>
           </View>
           <IconButton

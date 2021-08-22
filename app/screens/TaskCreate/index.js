@@ -71,10 +71,10 @@ const TaskCreate = () => {
             {params?.id ? (
               <View style={styles.timeWarpper}>
                 <Text style={styles.timeText}>
-                  Dibuat pada : {params?.created_at}
+                  Dibuat pada : {params?.fr_created_at}
                 </Text>
                 <Text style={styles.timeText}>
-                  Diubah pada : {params?.updated_at}
+                  Diubah pada : {params?.fr_updated_at}
                 </Text>
               </View>
             ) : null}
