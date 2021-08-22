@@ -1,7 +1,7 @@
 /* App config for apis
  */
 const ApiConfig = {
-  BASE_URL: 'http://new.yoinves.org/api/',
+  BASE_URL: 'https://new.yoinves.org/api/',
   LOGIN: 'auth/login',
   REGISTER: 'auth/register',
   TASK_LIST: 'task/list-group',
