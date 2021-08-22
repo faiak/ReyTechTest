@@ -16,6 +16,7 @@ const buildHeaders = state => {
 const getTask = createLogic({
   type: types.TASK_GET,
   warnTimeout: 0,
+  debounce: 500,
   process(
     { getState, action, action: { payload: { search = '' } = {} } },
     dispatch,
@@ -41,7 +42,6 @@ const createTask = createLogic({
   warnTimeout: 0,
   latest: true,
   process({ getState, action, action: { payload } }, dispatch, done) {
-    console.log({ payload });
     task
       .create(payload, { ...buildHeaders(getState()) })
       .then(({ data: { data } = {} }) => {

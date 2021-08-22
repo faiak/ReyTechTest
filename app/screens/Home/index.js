@@ -6,13 +6,14 @@ import { ContainerFlatList } from 'app/container';
 import NavigationService from 'app/navigation/NavigationService';
 import screens from 'app/navigation/screens';
 import { authActions, taskActions } from 'app/store/actions';
-import { RefreshControl, View } from 'react-native';
-import { Button, FAB, Text } from 'react-native-paper';
+import { RefreshControl, View, Image } from 'react-native';
+import { FAB, Text } from 'react-native-paper';
 
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles';
 import { taskSelectors } from 'app/store/selectors';
-import WrapperTask from 'app/components/WrapperTask';
+import { Button, WrapperTask } from 'app/components';
+import { IMAGES } from 'app/config/images';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -34,10 +35,8 @@ const Home = () => {
 
   return (
     <>
+      <Searchbar />
       <ContainerFlatList
-        ListHeaderComponent={() => {
-          return <Searchbar />;
-        }}
         disableKeybordListerner
         data={taskList}
         isLoading={isLoading}
@@ -47,6 +46,12 @@ const Home = () => {
         )}
         safeAreaViewStyle={styles.content}
         flatListProps={{
+          ListEmptyComponent: isLoading ? null : (
+            <View style={styles.emptyWrapper}>
+              <Image source={IMAGES.imgNodata} style={styles.emptyImage} />
+              <Button onPress={onCreate}>TAMBAH TASK</Button>
+            </View>
+          ),
           keyExtractor: ({ meta }) => `idx_${meta.date}`,
           refreshControl: (
             <RefreshControl
