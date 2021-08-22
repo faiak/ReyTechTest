@@ -53,7 +53,7 @@ const CardTask = ({
     if (is_deleted) {
       Animated.timing(scale, {
         toValue: 0,
-        duration: 1000,
+        duration: 500,
         useNativeDriver: true,
       }).start(() => {
         setIsHidden(true);
@@ -63,7 +63,9 @@ const CardTask = ({
   }, [is_deleted, scale, dispatch, id]);
 
   const isDark = useSelector(state => state.themeReducer.isDark);
-  if (isHidden) return null;
+  if (isHidden) {
+    return null;
+  }
   return (
     <Animated.View
       style={{

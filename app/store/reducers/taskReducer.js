@@ -11,6 +11,7 @@ const initialState = {
   isLoading: false,
   isLoadingComplete: false,
   isLoadingCreate: false,
+  isLoadingFirst: true,
   list: [],
   pagination: {
     per_page: 10,
@@ -104,7 +105,12 @@ const reducer = createReducer(initialState, {
 
 const persistConfig = {
   key: 'taskReducer',
-  blacklist: ['isLoading'],
+  blacklist: [
+    'isLoading',
+    'isLoadingFirst',
+    'isLoadingComplete',
+    'isLoadingCreate',
+  ],
   storage: AsyncStorage,
   version: 0,
 };
