@@ -6,4 +6,8 @@ export const getLoading = createSelector([authReducer], state => {
   return state.isLoading;
 });
 
-export default { getLoading };
+export const getToken = createSelector([authReducer], state => {
+  return state.token;
+});
+
+export default { getLoading, getToken };

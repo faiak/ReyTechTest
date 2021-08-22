@@ -1,9 +1,17 @@
 const { createSelector } = require('reselect');
 
-const authReducer = state => state.authReducer;
+const taskReducer = state => state.taskReducer;
 
-export const getLoading = createSelector([authReducer], state => {
+export const getLoading = createSelector([taskReducer], state => {
   return state.isLoading;
 });
 
-export default { getLoading };
+export const getLoadingComplete = createSelector([taskReducer], state => {
+  return state.isLoadingComplete;
+});
+
+export const getTask = createSelector([taskReducer], state => {
+  return state.list;
+});
+
+export default { getLoading, getTask, getLoadingComplete };

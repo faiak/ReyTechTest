@@ -1,16 +1,18 @@
+import React, { useEffect } from 'react';
 import CardTask from 'app/components/CardTask';
 import Searchbar from 'app/components/Searchbar';
 import { COLORS } from 'app/config/styles';
 import { ContainerFlatList } from 'app/container';
 import NavigationService from 'app/navigation/NavigationService';
 import screens from 'app/navigation/screens';
-import { authActions } from 'app/store/actions';
-import React from 'react';
-import { View } from 'react-native';
+import { authActions, taskActions } from 'app/store/actions';
+import { RefreshControl, View } from 'react-native';
 import { Button, FAB, Text } from 'react-native-paper';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles';
+import { taskSelectors } from 'app/store/selectors';
+import WrapperTask from 'app/components/WrapperTask';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,14 @@ const Home = () => {
     NavigationService.navigate(screens.TASK_CREATE);
   };
 
+  const taskList = useSelector(state => taskSelectors.getTask(state));
+  const isLoading = useSelector(state => taskSelectors.getLoading(state));
+
+  useEffect(() => {
+    dispatch(taskActions.get());
+    return () => {};
+  }, [dispatch]);
+
   return (
     <>
       <ContainerFlatList
@@ -29,19 +39,31 @@ const Home = () => {
           return <Searchbar />;
         }}
         disableKeybordListerner
-        data={['sad', 'sad', 'sad', 'sad', 'sad', 'sad', 'sad', 'sad']}
-        isLoading={false}
+        data={taskList}
+        isLoading={isLoading}
         onRefresh={onRefresh}
-        renderItem={(item, index) => <CardTask key={`idx_${index}`} />}
+        renderItem={({ item, index }) => (
+          <WrapperTask {...item} key={`idx_wrap_${index}`} />
+        )}
         safeAreaViewStyle={styles.content}
-        flatListProps={
-          {
-            // key
-            // extraData: this.state,
-            // ListFooterComponent: this._renderNote(),
-          }
-        }
-        // ListFooterComponent={this._renderFooter()}
+        flatListProps={{
+          keyExtractor: ({ meta }) => `idx_${meta.date}`,
+          refreshControl: (
+            <RefreshControl
+              refreshing={isLoading}
+              colors={[COLORS.PRIMARY]}
+              tintColor={COLORS.PRIMARY}
+              onRefresh={() => dispatch(taskActions.get())}
+            />
+          ),
+        }}
+      />
+      <FAB
+        label="Logout"
+        style={styles.fabLogout}
+        small={true}
+        icon="location-exit"
+        onPress={onLogout}
       />
       <FAB style={styles.fab} icon="plus" onPress={onCreate} />
     </>

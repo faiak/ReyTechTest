@@ -1,93 +1,55 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { authActions } from 'app/store/actions';
+import { authActions, taskActions } from 'app/store/actions';
 import styles from './styles';
 import NavigationService from 'app/navigation/NavigationService';
 import { TextInput, Button } from 'react-native-paper';
 import screens from 'app/navigation/screens';
 import { Form } from 'app/components';
 import { ContainerScrollView } from 'app/container';
-import { authSelectors } from 'app/store/selectors';
+import { authSelectors, taskSelectors } from 'app/store/selectors';
+import TextInputMask from 'react-native-text-input-mask';
 
 const formTemplate = [
   {
     Component: TextInput,
     componentProps: {
-      label: 'Nama',
+      label: 'Deskripsi',
       mode: 'outlined',
     },
-    submitType: 'email',
+    submitType: 'date',
     rules: {
       required: true,
     },
-    name: 'name',
+    name: 'title',
   },
   {
     Component: TextInput,
     componentProps: {
-      label: 'Email',
+      label: 'Tanggal (yyyy-mm-dd)',
+      render: props => <TextInputMask {...props} mask="0000-00-00" />,
       mode: 'outlined',
-      autoCapitalize: 'none',
-    },
-    submitType: 'password',
-    rules: {
-      required: true,
-      pattern: {
-        value: /\S+@\S+\.\S+/,
-        message: 'Entered value does not match email format',
-      },
-    },
-    name: 'email',
-  },
-  {
-    Component: TextInput,
-    componentProps: {
-      label: 'Password',
-      mode: 'outlined',
-      secureTextEntry: true,
-      autoCapitalize: 'none',
-    },
-    submitType: 'password_confirmation',
-    rules: {
-      required: true,
-      minLength: {
-        value: 5,
-        message: 'min length is 5',
-      },
-    },
-    name: 'password',
-  },
-  {
-    Component: TextInput,
-    componentProps: {
-      label: 'Konfirmasi Password',
-      mode: 'outlined',
-      secureTextEntry: true,
       autoCapitalize: 'none',
     },
     submitType: 'submit',
     rules: {
       required: true,
-      minLength: {
-        value: 5,
-        message: 'min length is 5',
-      },
     },
-    name: 'password_confirmation',
+    name: 'date',
   },
 ];
 
 const TaskCreate = () => {
   const dispatch = useDispatch();
 
-  const isLoading = useSelector(state => authSelectors.getLoading(state));
-  const onRegister = data => dispatch(authActions.register(data));
+  const isLoading = useSelector(state => taskSelectors.getLoading(state));
+  const onSubmit = data => dispatch(taskActions.create(data));
 
   return (
     <ContainerScrollView>
       <Form
-        onSubmit={onRegister}
+        onSubmit={onSubmit}
         isLoading={isLoading}
         data={formTemplate}
         bottomComponent={({ handleSubmit }) => (
@@ -98,8 +60,8 @@ const TaskCreate = () => {
               labelStyle={styles.buttonLabel}
               style={styles.button}
               mode="contained"
-              onPress={handleSubmit(onRegister)}>
-              DAFTAR
+              onPress={handleSubmit(onSubmit)}>
+              TAMBAH
             </Button>
           </>
         )}

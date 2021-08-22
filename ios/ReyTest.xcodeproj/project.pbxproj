@@ -11,9 +11,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		50DFF1E9C5780D9AE52A4250 /* libPods-ReyTest-ReyTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD670136DA12818C90CF55CC /* libPods-ReyTest-ReyTestTests.a */; };
+		593E93197D5571D18A09FB19 /* libPods-ReyTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2179045EF5A9EEF04F6B399 /* libPods-ReyTest.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		8C0034E753E707BEC7F6C22E /* libPods-ReyTest-ReyTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EEDA297F9E38174EFABD9F4 /* libPods-ReyTest-ReyTestTests.a */; };
-		D377B620A197FE77DAEA05BD /* libPods-ReyTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C44A80C424A9BAF97858DAB /* libPods-ReyTest.a */; };
+		8F7B871B26D21C3F00F22D23 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7B871A26D21C3F00F22D23 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,13 +46,15 @@
 		62A508A7A7684CB3B4AFBE2A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		6380DA9E108DD561F30AD3C1 /* Pods-ReyTest-ReyTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReyTest-ReyTestTests.release.xcconfig"; path = "Target Support Files/Pods-ReyTest-ReyTestTests/Pods-ReyTest-ReyTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		6714FE58BD3310A8ED341F09 /* Pods-ReyTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReyTest.debug.xcconfig"; path = "Target Support Files/Pods-ReyTest/Pods-ReyTest.debug.xcconfig"; sourceTree = "<group>"; };
-		6EEDA297F9E38174EFABD9F4 /* libPods-ReyTest-ReyTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReyTest-ReyTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C44A80C424A9BAF97858DAB /* libPods-ReyTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReyTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReyTest/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		874268F83CC44C7381CBF5CB /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		8F7B871926D21C3E00F22D23 /* ReyTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReyTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		8F7B871A26D21C3F00F22D23 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		9DA2E65FB2FC3D85825B9BEC /* Pods-ReyTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReyTest.release.xcconfig"; path = "Target Support Files/Pods-ReyTest/Pods-ReyTest.release.xcconfig"; sourceTree = "<group>"; };
 		AB03336DBC5C44328CF60652 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		CD670136DA12818C90CF55CC /* libPods-ReyTest-ReyTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReyTest-ReyTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43AD0A9557CD35E97F2C388 /* Pods-ReyTest-ReyTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReyTest-ReyTestTests.debug.xcconfig"; path = "Target Support Files/Pods-ReyTest-ReyTestTests/Pods-ReyTest-ReyTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E2179045EF5A9EEF04F6B399 /* libPods-ReyTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReyTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E695ABCC942040C188C1870D /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		ED1E4BACFA64478780173A7E /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -67,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C0034E753E707BEC7F6C22E /* libPods-ReyTest-ReyTestTests.a in Frameworks */,
+				50DFF1E9C5780D9AE52A4250 /* libPods-ReyTest-ReyTestTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D377B620A197FE77DAEA05BD /* libPods-ReyTest.a in Frameworks */,
+				593E93197D5571D18A09FB19 /* libPods-ReyTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				7C44A80C424A9BAF97858DAB /* libPods-ReyTest.a */,
-				6EEDA297F9E38174EFABD9F4 /* libPods-ReyTest-ReyTestTests.a */,
+				E2179045EF5A9EEF04F6B399 /* libPods-ReyTest.a */,
+				CD670136DA12818C90CF55CC /* libPods-ReyTest-ReyTestTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8F7B871A26D21C3F00F22D23 /* File.swift */,
 				13B07FAE1A68108700A75B9A /* ReyTest */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ReyTestTests */,
@@ -150,6 +154,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				244F76ECE4F9D42F4415AFD7 /* Pods */,
 				A51B9F0D6FD8418C9BAFDCC4 /* Resources */,
+				8F7B871926D21C3E00F22D23 /* ReyTest-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -200,7 +205,7 @@
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
 				7A0A82FA374DABA2362BD759 /* [CP] Embed Pods Frameworks */,
-				A8AE9FF6A4A9A1091CC7DC0D /* [CP] Copy Pods Resources */,
+				B912DBE9E53D2DC8F574D522 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,7 +228,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				21DCA7BBFC3FA8094341B248 /* [CP] Embed Pods Frameworks */,
-				2FB4247ECC062E378C2FD8A8 /* [CP] Copy Pods Resources */,
+				68227019715018C593AD2920 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,7 +252,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -321,7 +326,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReyTest/Pods-ReyTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2FB4247ECC062E378C2FD8A8 /* [CP] Copy Pods Resources */ = {
+		68227019715018C593AD2920 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,7 +382,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A8AE9FF6A4A9A1091CC7DC0D /* [CP] Copy Pods Resources */ = {
+		B912DBE9E53D2DC8F574D522 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -451,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				8F7B871B26D21C3F00F22D23 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +476,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D43AD0A9557CD35E97F2C388 /* Pods-ReyTest-ReyTestTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -497,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6380DA9E108DD561F30AD3C1 /* Pods-ReyTest-ReyTestTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = ReyTestTests/Info.plist;
@@ -537,6 +545,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReyTest;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReyTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -562,6 +571,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReyTest;
+				SWIFT_OBJC_BRIDGING_HEADER = "ReyTest-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

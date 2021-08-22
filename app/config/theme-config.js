@@ -6,12 +6,13 @@ import {
   DefaultTheme as NavigationDefaultTheme,
   DarkTheme as NavigationDarkTheme,
 } from '@react-navigation/native';
+import { COLORS } from './styles';
 
 export const PaperThemeDefault = {
   ...PaperDefaultTheme,
   colors: {
     ...PaperDefaultTheme.colors,
-    primary: '#3498db',
+    primary: COLORS.PRIMARY,
     // background: 'white',
     // surface: 'white',
     // accent: 'white',
@@ -29,7 +30,7 @@ export const PaperThemeDark = {
   ...PaperDarkTheme,
   colors: {
     ...PaperDarkTheme.colors,
-    primary: '#3498db',
+    primary: COLORS.PRIMARY,
   },
 };
 

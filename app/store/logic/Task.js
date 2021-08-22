@@ -1,19 +1,31 @@
 import { createLogic } from 'redux-logic';
 import { types, taskActions } from 'app/store/actions';
-import authentication from 'app/services/authentication';
+import task from 'app/services/task';
+import { authSelectors } from '../selectors';
+
+const buildHeaders = state => {
+  return {
+    headers: {
+      Authorization: `Bearer ${authSelectors.getToken(state)}`,
+    },
+  };
+};
 
 const getTask = createLogic({
   type: types.TASK_GET,
   warnTimeout: 0,
   process(
-    { getState, action, action: { payload: { email, password } = {} } },
+    { getState, action, action: { payload: { search = '' } = {} } },
     dispatch,
     done,
   ) {
-    authentication
-      .login({ email, password })
+    task
+      .get({
+        ...buildHeaders(getState()),
+        params: { 'pagination[perpage]': 999, 'like[title]': search },
+      })
       .then(({ data: { data } = {} }) => {
-        dispatch(taskActions.getSuccess({ token: data?.token }));
+        dispatch(taskActions.getSuccess({ data }));
       })
       .catch(error => {
         dispatch(taskActions.getFailed(error));
@@ -27,10 +39,10 @@ const createTask = createLogic({
   warnTimeout: 0,
   latest: true,
   process({ getState, action, action: { payload } }, dispatch, done) {
-    authentication
-      .register(payload)
+    task
+      .create({ ...buildHeaders(getState()), body: {} })
       .then(({ data: { data } = {} }) => {
-        dispatch(taskActions.createSuccess({ token: data?.token }));
+        dispatch(taskActions.createSuccess({}));
       })
       .catch(error => {
         dispatch(taskActions.createFailed(error));
@@ -44,10 +56,10 @@ const deleteTask = createLogic({
   warnTimeout: 0,
   latest: true,
   process({ getState, action, action: { payload } }, dispatch, done) {
-    authentication
-      .register(payload)
+    task
+      .delete({ ...buildHeaders(getState()), body: {} })
       .then(({ data: { data } = {} }) => {
-        dispatch(taskActions.deleteSuccess({ token: data?.token }));
+        dispatch(taskActions.deleteSuccess({}));
       })
       .catch(error => {
         dispatch(taskActions.deleteFailed(error));
@@ -61,10 +73,10 @@ const completeTask = createLogic({
   warnTimeout: 0,
   latest: true,
   process({ getState, action, action: { payload } }, dispatch, done) {
-    authentication
-      .register(payload)
+    task
+      .complete({ id: payload }, { ...buildHeaders(getState()) })
       .then(({ data: { data } = {} }) => {
-        dispatch(taskActions.completeSuccess({ token: data?.token }));
+        dispatch(taskActions.completeSuccess({ data }));
       })
       .catch(error => {
         dispatch(taskActions.completeFailed(error));

@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 const initialState = {
   isLoading: false,
+  isLoadingComplete: false,
   list: [],
   pagination: {
     per_page: 10,
@@ -29,6 +30,31 @@ const reducer = createReducer(initialState, {
     ...state,
     isLoading: false,
     list: payload.data,
+  }),
+  [types.TASK_GET_FAILED]: (state, { payload }) => ({
+    ...state,
+    isLoading: false,
+  }),
+
+  [types.TASK_COMPLETE]: state => ({
+    ...state,
+    isLoadingComplete: true,
+  }),
+  [types.TASK_COMPLETE_SUCCESS]: (state, { payload }) => ({
+    ...state,
+    isLoadingComplete: false,
+    list: state.list.map(({ meta, data }, index) => ({
+      meta,
+      data: data.map(task => ({
+        ...task,
+        is_complete:
+          task.id === payload.data.id ? !task.is_complete : task.is_complete,
+      })),
+    })),
+  }),
+  [types.TASK_COMPLETE_FAILED]: state => ({
+    ...state,
+    isLoadingComplete: false,
   }),
 });
 
