@@ -1,3 +1,3 @@
-import { authentication, fail } from 'app/store/logic';
+import { authentication, fail, task } from 'app/store/logic';
 
-export default [...authentication, ...fail];
+export default [...authentication, ...fail, ...task];

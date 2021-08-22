@@ -8,9 +8,8 @@ const onFail = createLogic({
     {
       action,
       action: {
-        payload: {
-          result: { response: { data: { messages } = {} } = {} } = {},
-        } = {},
+        payload: { response: { data: { messages } = {} } = {} } = ({} = {}),
+        payload,
       },
     },
     dispatch,

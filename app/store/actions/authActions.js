@@ -5,26 +5,22 @@ import { types } from 'app/store/actions';
 
 export default {
   login: payload => ({ type: types.LOGIN, payload }),
-
-  successLogin: payload => ({
+  loginSuccess: payload => ({
     type: types.LOGIN_SUCCESS,
     payload,
   }),
-
-  failLogin: result => ({
+  loginFailed: payload => ({
     type: types.LOGIN_FAILED,
-    payload: { result },
+    payload,
   }),
-
   register: payload => ({ type: types.REGISTER, payload }),
-  successRegister: payload => ({
+  registerSuccess: payload => ({
     type: types.REGISTER_SUCCESS,
     payload,
   }),
-  failRegister: result => ({
+  registerFailed: payload => ({
     type: types.REGISTER_FAILED,
-    payload: { result },
+    payload,
   }),
-
-  logout: payload => ({ type: types.LOGOUT }),
+  logout: () => ({ type: types.LOGOUT }),
 };

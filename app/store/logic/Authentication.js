@@ -13,10 +13,10 @@ const doLogin = createLogic({
     authentication
       .login({ email, password })
       .then(({ data: { data } = {} }) => {
-        dispatch(authActions.successLogin({ token: data?.token }));
+        dispatch(authActions.loginSuccess({ token: data?.token }));
       })
       .catch(error => {
-        dispatch(authActions.failLogin(error));
+        dispatch(authActions.loginFailed(error));
       })
       .then(done);
   },
@@ -30,10 +30,10 @@ const doRegister = createLogic({
     authentication
       .register(payload)
       .then(({ data: { data } = {} }) => {
-        dispatch(authActions.successRegister({ token: data?.token }));
+        dispatch(authActions.registerSuccess({ token: data?.token }));
       })
       .catch(error => {
-        dispatch(authActions.failRegister(error));
+        dispatch(authActions.registerFailed(error));
       })
       .then(done);
   },

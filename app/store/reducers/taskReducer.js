@@ -8,28 +8,32 @@ import persistReducer from 'redux-persist/es/persistReducer';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const initialState = {
-  show: false,
-  title: '',
-  body: '',
+  isLoading: false,
+  list: [],
+  pagination: {
+    per_page: 10,
+    page: 1,
+    current_page: 1,
+  },
 };
 
+const setLoadingDone = state => ({ ...state, isLoading: false });
+
 const reducer = createReducer(initialState, {
-  [types.MODAL_SHOW]: (state, { payload }) => ({
+  [types.TASK_GET]: (state, { payload }) => ({
     ...state,
-    show: true,
-    title: payload?.title,
-    body: payload?.body,
+    ...initialState,
+    isLoading: true,
   }),
-  [types.MODAL_HIDE]: (state, { payload }) => ({
+  [types.TASK_GET_SUCCESS]: (state, { payload }) => ({
     ...state,
-    show: false,
-    title: '',
-    body: '',
+    isLoading: false,
+    list: payload.data,
   }),
 });
 
 const persistConfig = {
-  key: 'modalReducer',
+  key: 'taskReducer',
   blacklist: ['isLoading'],
   storage: AsyncStorage,
   version: 0,
